@@ -48,7 +48,7 @@ const pizzas = [
     }
 ]
 
-function guardar_pizza(nombre, precio, foto, id, ingredientes) {
+function guardar_pizza(nombre, precio, foto, id, ingredientes) { //guarda la ultima pizza
     let newPizza = {
         nombre: nombre,
         precio: precio,
@@ -59,7 +59,7 @@ function guardar_pizza(nombre, precio, foto, id, ingredientes) {
     localStorage.setItem("pizza", JSON.stringify( newPizza ))
 }
 
-function obtener_pizza() {
+function obtener_pizza() { //trae la pizza del localStorage
     let pizza = JSON.parse(localStorage.getItem("pizza")) 
     devolverPizza(pizza.nombre, pizza.precio, pizza.foto, pizza.id, pizza.ingredientes)
 }
@@ -91,8 +91,7 @@ const devolverPizza = (nombre, precio, foto, ingredientes) => {
     }
 
 const clerearResultado = () => {
-    return pizzasContainer.innerHTML = `
-    `
+    return pizzasContainer.innerHTML = ``
 }
 
 const boton = document.getElementById('button').addEventListener('click', (e) =>{
